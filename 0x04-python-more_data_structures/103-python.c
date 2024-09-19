@@ -22,13 +22,16 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	size = PyBytes_Size(p);
-	string = PyBytes_AsString(p);
+	if (PyBytes_AsStringAndSize(p, &string, &size) < 0)
+	{
+		printf("  [ERROR] Failed to retrieve string\n");
+		return;
+	}
 
 	printf("  size: %zd\n", size);
 	printf("  trying string: %s\n", string);
 
-	printf("  first %zd bytes: ", size < 10 ? size : 10);
+	printf("  first 10 bytes: ");
 	for (i = 0; i < size && i < 10; i++)
 	{
 		printf("%02x", (unsigned char)string[i]);
@@ -44,21 +47,21 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t size, alloc, i;
+	Py_ssize_t size, i;
 	PyObject *item;
 	const char *type;
+	PyListObject *list = (PyListObject *)p;
 
-	size = PyList_Size(p);
-	alloc = ((PyListObject *)p)->allocated;
+	size = PyObject_Length(p);
 
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %zd\n", size);
-	printf("[*] Allocated = %zd\n", alloc);
+	printf("[*] Allocated = %zd\n", list->allocated);
 
 	for (i = 0; i < size; i++)
 	{
-		item = PyList_GetItem(p, i);
-		type = Py_TYPE(item)->tp_name;
+		item = list->ob_item[i];
+		type = item->ob_type->tp_name;
 		printf("Element %zd: %s\n", i, type);
 		if (PyBytes_Check(item))
 			print_python_bytes(item);
