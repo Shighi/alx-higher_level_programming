@@ -1,0 +1,42 @@
+# Test cases for add_integer function
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test normal addition
+>>> add_integer(1, 2)
+3
+
+# Test with float inputs
+>>> add_integer(100.3, -2)
+98
+
+# Test with one argument (should use default b=98)
+>>> add_integer(2)
+100
+
+# Test with negative numbers
+>>> add_integer(-4, -5)
+-9
+
+# Test error cases
+>>> try:
+...     add_integer(4, "School")
+... except Exception as e:
+...     print(e)
+b must be an integer
+
+>>> try:
+...     add_integer(None)
+... except Exception as e:
+...     print(e)
+a must be an integer
+
+>>> try:
+...     add_integer("Hello", 3)
+... except Exception as e:
+...     print(e)
+a must be an integer
+
+# Test with large numbers
+>>> add_integer(1500000000, 2500000000)
+4000000000

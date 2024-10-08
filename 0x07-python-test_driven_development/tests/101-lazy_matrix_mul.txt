@@ -1,0 +1,38 @@
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
+>>> lazy_matrix_mul([[1, 2]], [])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[]], [[1, 2]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul("not a list", [[1, 2]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[1, 2]], "not a list")
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[1, "string"]], [[1, 2]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[1, 2]], [[1, "string"]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[1, 2], [3, 4, 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+>>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4, 5]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
