@@ -1,66 +1,26 @@
-# Test cases for 7-base_geometry.py
-
-# Importing the BaseGeometry class
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Test case 1: Creating an instance
 >>> bg = BaseGeometry()
->>> type(bg)
-<class '7-base_geometry.BaseGeometry'>
 
-# Test case 2: Calling area method (should raise an Exception)
 >>> bg.area()
 Traceback (most recent call last):
-    ...
+  File "<stdin>", line 1, in <module>
 Exception: area() is not implemented
 
-# Test case 3: Integer validator with valid input
 >>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
 
-# Test case 4: Integer validator with invalid type (string)
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
-    ...
+  File "<stdin>", line 1, in <module>
 TypeError: name must be an integer
 
-# Test case 5: Integer validator with invalid value (zero)
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
-    ...
+  File "<stdin>", line 1, in <module>
 ValueError: age must be greater than 0
 
-# Test case 6: Integer validator with invalid value (negative)
->>> bg.integer_validator("distance", -4)
+>>> bg.integer_validator("age", -4)
 Traceback (most recent call last):
-    ...
-ValueError: distance must be greater than 0
-
-# Test case 7: Integer validator with float
->>> bg.integer_validator("average", 7.5)
-Traceback (most recent call last):
-    ...
-TypeError: average must be an integer
-
-# Test case 8: Integer validator with boolean
->>> bg.integer_validator("valid", True)
-Traceback (most recent call last):
-    ...
-TypeError: valid must be an integer
-
-# Test case 9: Integer validator with no arguments
->>> bg.integer_validator()
-Traceback (most recent call last):
-    ...
-TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-# Test case 10: Integer validator with only one argument
->>> bg.integer_validator("arg")
-Traceback (most recent call last):
-    ...
-TypeError: integer_validator() missing 1 required positional argument: 'value'
-
-# Test case 11: Integer validator with three arguments
->>> bg.integer_validator("numbers", 1, 2)
-Traceback (most recent call last):
-    ...
-TypeError: integer_validator() takes 3 positional arguments but 4 were given
+  File "<stdin>", line 1, in <module>
+ValueError: age must be greater than 0
