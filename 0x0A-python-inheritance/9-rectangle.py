@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-"""
-Module defining a class Rectangle that inherits from BaseGeometry 
-and implements area and str.
-"""
-
+"""Module defining a class Rectangle that inherits from BaseGeometry and
+implements area and str."""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 

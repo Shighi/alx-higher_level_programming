@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module defining a class BaseGeometry with a method that raises an exception."""
+"""Module defining a class BaseGeometry with a method raising an exception."""
+
 
 class BaseGeometry:
     """A class for geometric shapes."""

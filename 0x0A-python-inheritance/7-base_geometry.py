@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Module defining a class BaseGeometry with a method for validating integers."""
+"""Module defining a class BaseGeometry with integer validation method."""
+
 
 class BaseGeometry:
     """A class for geometric shapes."""
