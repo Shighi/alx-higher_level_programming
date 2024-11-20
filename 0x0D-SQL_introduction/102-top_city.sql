@@ -1,3 +1,6 @@
+-- Use the correct database
+USE hbtn_0c_0;
+
 -- Display the top 3 cities with the highest temperatures during July and August
 -- Results are sorted by average temperature in descending order
 SELECT city, AVG(temperature) AS avg_temp
