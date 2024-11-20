@@ -98,5 +98,4 @@ cat [script_name].sql | mysql -hlocalhost -uroot -p [database_name]
 Author
 This project was completed as part of the ALX Software Engineering Program. Authored by Shighi.
 
-Feel free to customize this further based on your preferences!
 
